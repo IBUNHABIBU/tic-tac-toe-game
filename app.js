@@ -1,52 +1,27 @@
-const cells = document.querySelectorAll('.cell');
-const tictactoe = Game();
-tictactoe.start();
-function Game(){
-  const board = Board();
-  const humanPlayer = HumanPlayer(board);
-  const computerPlayer = ComputerPlayer(board);
-  let turn = 0;
-  const takeTurn = () => {
-    if(turn % 2 === 0) {
-      humanPlayer.takeTurn();
-    } else {
-      computerPlayer.takeTurn();
-    }
-    turn++;
+const cells  = document.querySelectorAll('.cell');
+let currentPlayer = 'X';
+Array.from(cells).forEach( cell=> {
+cell.addEventListener('click',addMark, { once: true });
+});
+function addMark(e){
+const boxes = Array.from(cells);
+const index = boxes.indexOf(e.target);
+cells[index].innerHTML = currentPlayer;
+  if(currentPlayer==='X'){
+    currentPlayer = 'O';
+  } else {
+    currentPlayer = 'X';
   }
-  const start = () => {
-    const config = { childList: true };
-    const observer = new MutationObserver(() => takeTurn() );
-    board.positions.forEach(element => {
-      observer.observe(element, config);
-      takeTurn();
-    });
-  }
-  
-  return {start};
 }
-function Board(){
-  const positions = Array.from(cells);
-  return { positions }
-}
-function HumanPlayer(board){
- 
-  const takeTurn = () => {
-    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken));
-  };
-  const handleTurnTaken = (e) => {
-    e.target.innerText = 'X';
-    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken));
-  };
-  return { takeTurn };
-}
-function ComputerPlayer(board){
-  const takeTurn = () => {
-    const availablePosition = board.positions.filter((p) => p.innerText === '');
-    
-    // const move = Math.floor(Math.random() * availablePosition.length);
-    // console.log(move);
-    // availablePosition[move].innerText = 'O';
-  };
-  return { takeTurn };
+function checkWinner(){
+  const winningCombination = [
+    [0,1,3],
+    [3,4,5],
+    [6,7,8],
+    [0,4,8],
+    [2,4,6],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8]
+  ]
 }
