@@ -1,4 +1,6 @@
 const cells = document.querySelectorAll('.cell');
+const winningMsg = document.querySelector('.winning-msg');
+const winData = document.querySelector('[data-win-text]');
 const tictactoe = Game();
 tictactoe.start();
 function Game(){
@@ -51,6 +53,13 @@ function Board(){
         winner = true;
         winningCombo.forEach(index=>{
           positions[index].classList.add('win');
+          winningMsg.classList.add('show');
+          if(positions[index].innerText==='X'){
+            winData.innerText ="Conguratulation You Won The game!"
+          } else {
+            winData.innerText = "Oops Computer won try again";
+          }
+          
         })
       }
     });

@@ -33,12 +33,26 @@
   right: 0;
   bottom: 0;
   background-color: rgba(3, 0, 8, 0.7);
-  display: flex;
+  display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 5rem;
+  text-align: center;
+  font-size: 2rem;
 }
 .winning-msg button{
   font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: .25em .5em;
+  cursor: pointer;
+}
+.winning-msg button:hover{
+  background-color: rgba(3, 0, 8, 0.7);
+  border-color: white;
+  color: white;
+}
+.winning-msg.show{
+  display: flex;
 }
