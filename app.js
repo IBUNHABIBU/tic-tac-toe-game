@@ -9,10 +9,10 @@ function Game(){
   const computerPlayer = ComputerPlayer(board);
   let turn = 0;
   const takeTurn = () => {
-    if(board.checkForWinner()) {
+    if (board.checkForWinner()) {
       return;
     }
-    if(turn % 2 === 0) {
+    if (turn % 2 === 0) {
       humanPlayer.takeTurn();
     } else {
       computerPlayer.takeTurn();
@@ -56,12 +56,12 @@ function Board(){
       const isWinningCombo = pos0InnerText !== '' &&
              pos0InnerText === pos1InnerText &&
              pos1InnerText === pos2InnerText;
-      if(isWinningCombo){
+      if (isWinningCombo){
         winner = true;
         winningCombo.forEach(index=>{
           positions[index].classList.add('win');
           winningMsg.classList.add('show');
-          if(positions[index].innerText==='X'){
+          if (positions[index].innerText==='X'){
             winData.innerText ="Conguratulation You Won The game!"
           } else {
             winData.innerText = "Oops Computer won try again";
