@@ -3,7 +3,7 @@ const winningMsg = document.querySelector('.winning-msg');
 const winData = document.querySelector('[data-win-text]');
 const reset = document.getElementById('reset');
 
-function Game(){
+function Game() {
   const board = Board();
   const humanPlayer = HumanPlayer(board);
   const computerPlayer = ComputerPlayer(board);
@@ -49,7 +49,7 @@ function Board(){
       [0, 4, 8], 
       [2, 4, 6], 
     ]
-    winningCombinations.forEach( winningCombo=>{
+    winningCombinations.forEach( winningCombo => {
       const pos0InnerText = positions[winningCombo[0]].innerText;
       const pos1InnerText = positions[winningCombo[1]].innerText;
       const pos2InnerText = positions[winningCombo[2]].innerText;
@@ -58,7 +58,7 @@ function Board(){
              pos1InnerText === pos2InnerText;
       if (isWinningCombo){
         winner = true;
-        winningCombo.forEach(index=>{
+        winningCombo.forEach( index => {
           positions[index].classList.add('win');
           winningMsg.classList.add('show');
           if (positions[index].innerText==='X'){
@@ -75,7 +75,6 @@ function Board(){
   return { positions, checkForWinner };
 }
 function HumanPlayer(board){
- 
   const takeTurn = () => {
     board.positions.forEach(position => position.addEventListener('click', handleTurnTaken));
   };
