@@ -28,17 +28,16 @@ function Board() {
         winningCombo.forEach(index => {
           positions[index].classList.add('win');
           winningMsg.classList.add('show');
-          if (positions[index].innerText==='X') {
-            winData.innerText ="Conguratulation You Won The game!"
+          if (positions[index].innerText === 'X') {
+            winData.innerText = 'Conguratulation You Won The game!';
           } else {
-            winData.innerText = "Oops Computer won try again";
-          } 
-          
+            winData.innerText = 'Oops Computer won try again';
+          }
         });
-      } 
+      }
     });
     return winner;
-  }
+  };
   return { positions, checkForWinner };
 }
 function Game() {
@@ -56,7 +55,7 @@ function Game() {
       computerPlayer.takeTurn();
     }
     turn++;
-  }
+  };
   const start = () => {
     const config = { childList: true };
     const observer = new MutationObserver(() => takeTurn() );
