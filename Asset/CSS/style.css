@@ -1,4 +1,4 @@
-.board{
+.board {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
@@ -17,19 +17,14 @@
 
 .cell:first-child,
 .cell:nth-child(2),
-.cell:nth-child(3)
+.cell:nth-child(3) 
 {
   border-top: none;
 }
 
-.cell:nth-child(3n)
-{
-  border-right: none;
-}
+.cell:nth-child(3n) { border-right: none; }
 
-.win {
-  background-color: gold;
-}
+.win { background-color: gold; }
 
 .winning-msg {
   position: fixed;
