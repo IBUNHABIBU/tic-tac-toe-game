@@ -21,7 +21,7 @@ function Board() {
       const pos1InnerText = positions[winningCombo[1]].innerText;
       const pos2InnerText = positions[winningCombo[2]].innerText;
       const isWinningCombo = pos0InnerText !== ''
-      && pos0InnerText === pos1InnerText 
+      && pos0InnerText === pos1InnerText
       && pos1InnerText === pos2InnerText;
       if (isWinningCombo) {
         winner = true;
@@ -42,12 +42,12 @@ function Board() {
 }
 
 function HumanPlayer(board) {
-  const takeTurn = () => {
-    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken));
-  };
   const handleTurnTaken = (e) => {
     e.target.innerText = 'X';
     board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken));
+  };
+  const takeTurn = () => {
+    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken));
   };
   return { takeTurn };
 }
@@ -74,7 +74,7 @@ function Game() {
     } else {
       computerPlayer.takeTurn();
     }
-    turn++;
+    turn += 1;
   };
   const start = () => {
     const config = { childList: true };
@@ -89,4 +89,5 @@ tictactoe.start();
 const restart = () => {
   return tictactoe.start();
 };
-reset.addEventListener('click',restart);
+reset.addEventListener('click', restart);
+
