@@ -31,7 +31,7 @@ function Game(){
 const tictactoe = Game();
 tictactoe.start();
 const restart = () => {
-  tictactoe.start();
+  return tictactoe.start();
 }
 reset.addEventListener('click',restart);
 
