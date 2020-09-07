@@ -78,7 +78,7 @@ function Game() {
   };
   const start = () => {
     const config = { childList: true };
-    const observer = new MutationObserver(() =>takeTurn() );
+    const observer = new MutationObserver(() => takeTurn());
     board.positions.forEach(element => observer.observe(element, config));
     takeTurn();
   };
