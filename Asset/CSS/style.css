@@ -23,10 +23,11 @@
 {
   border-right: none;
 }
-.win{
+.win {
   background-color: gold;
 }
-.winning-msg{
+
+.winning-msg {
   position: fixed;
   top: 0;
   left: 0;
@@ -42,18 +43,19 @@
   font-size: 2rem;
   padding-top: 18rem;
 }
-.winning-msg button{
+
+.winning-msg button {
   font-size: 3rem;
   background-color: white;
   border: 1px solid black;
   padding: .25em .5em;
   cursor: pointer;
 }
-.winning-msg button:hover{
+.winning-msg button:hover {
   background-color: rgba(3, 0, 8, 0.7);
   border-color: white;
   color: white;
 }
-.winning-msg.show{
+.winning-msg.show {
   display: flex;
 }
