@@ -17,8 +17,7 @@
 
 .cell:first-child,
 .cell:nth-child(2),
-.cell:nth-child(3) 
-{
+.cell:nth-child(3) {
   border-top: none;
 }
 
