@@ -57,6 +57,4 @@
   color: white;
 }
 
-.winning-msg.show {
-  display: flex;
-}
+.winning-msg.show { display: flex }
