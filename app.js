@@ -78,7 +78,7 @@ function Game() {
   };
   const start = () => {
     const config = { childList: true };
-    const observer = new MutationObserver(()=> takeTurn() );
+    const observer = new MutationObserver(() =>takeTurn() );
     board.positions.forEach(element => observer.observe(element, config));
     takeTurn();
   };
@@ -86,5 +86,5 @@ function Game() {
 }
 const tictactoe = Game();
 tictactoe.start();
-const restart = () => { return tictactoe.start(); };
+const restart = () => tictactoe.start();
 reset.addEventListener('click', restart);
