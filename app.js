@@ -1,8 +1,14 @@
 const cells = document.querySelectorAll('.cell');
 const winningMsg = document.querySelector('.winning-msg');
 const winData = document.querySelector('[data-win-text]');
+const reset = document.getElementById('reset');
 const tictactoe = Game();
 tictactoe.start();
+const restart = () => {
+  tictactoe.start();
+}
+reset.addEventListener('click',restart);
+
 function Game(){
   const board = Board();
   const humanPlayer = HumanPlayer(board);
@@ -58,10 +64,10 @@ function Board(){
             winData.innerText ="Conguratulation You Won The game!"
           } else {
             winData.innerText = "Oops Computer won try again";
-          }
+          } 
           
-        })
-      }
+        });
+      } 
     });
     return winner;
   }
