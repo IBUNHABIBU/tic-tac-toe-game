@@ -17,10 +17,8 @@ function Game(){
   const start = () => {
     const config = { childList: true };
     const observer = new MutationObserver(() => takeTurn() );
-    board.positions.forEach(element => {
-      observer.observe(element, config);
-      takeTurn();
-    });
+    board.positions.forEach(element => observer.observe(element, config));
+    takeTurn();
   }
   
   return {start};
@@ -44,9 +42,9 @@ function ComputerPlayer(board){
   const takeTurn = () => {
     const availablePosition = board.positions.filter((p) => p.innerText === '');
     
-    // const move = Math.floor(Math.random() * availablePosition.length);
+    const move = Math.floor(Math.random() * availablePosition.length);
     // console.log(move);
-    // availablePosition[move].innerText = 'O';
+    availablePosition[move].innerText = 'O';
   };
   return { takeTurn };
 }
