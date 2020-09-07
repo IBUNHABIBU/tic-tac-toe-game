@@ -20,9 +20,9 @@ function Board() {
       const pos0InnerText = positions[winningCombo[0]].innerText;
       const pos1InnerText = positions[winningCombo[1]].innerText;
       const pos2InnerText = positions[winningCombo[2]].innerText;
-      const isWinningCombo = pos0InnerText !== ''&&
-             pos0InnerText === pos1InnerText&&
-             pos1InnerText === pos2InnerText;
+      const isWinningCombo = pos0InnerText !== ''
+      && pos0InnerText === pos1InnerText 
+      && pos1InnerText === pos2InnerText;
       if (isWinningCombo) {
         winner = true;
         winningCombo.forEach(index => {
@@ -40,6 +40,26 @@ function Board() {
   };
   return { positions, checkForWinner };
 }
+
+function HumanPlayer(board) {
+  const takeTurn = () => {
+    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken));
+  };
+  const handleTurnTaken = (e) => {
+    e.target.innerText = 'X';
+    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken));
+  };
+  return { takeTurn };
+}
+function ComputerPlayer(board) {
+  const takeTurn = () => {
+    const availablePosition = board.positions.filter((p) => p.innerText === '');
+    const move = Math.floor(Math.random() * availablePosition.length);
+    availablePosition[move].innerText = 'O';
+  };
+  return { takeTurn };
+}
+
 function Game() {
   const board = Board();
   const humanPlayer = HumanPlayer(board);
@@ -61,32 +81,12 @@ function Game() {
     const observer = new MutationObserver(() => takeTurn() );
     board.positions.forEach(element => observer.observe(element, config));
     takeTurn();
-  }
-  
+  };
   return { start };
 }
 const tictactoe = Game();
 tictactoe.start();
 const restart = () => {
   return tictactoe.start();
-}
+};
 reset.addEventListener('click',restart);
-
-function HumanPlayer(board) {
-  const takeTurn = () => {
-    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken));
-  };
-  const handleTurnTaken = (e) => {
-    e.target.innerText = 'X';
-    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken));
-  };
-  return { takeTurn };
-}
-function ComputerPlayer(board) {
-  const takeTurn = () => {
-    const availablePosition = board.positions.filter((p) => p.innerText === '');
-    const move = Math.floor(Math.random() * availablePosition.length);
-    availablePosition[move].innerText = 'O';
-  };
-  return { takeTurn };
-}
