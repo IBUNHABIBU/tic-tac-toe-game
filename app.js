@@ -86,5 +86,3 @@ function Game() {
 }
 const tictactoe = Game();
 tictactoe.start();
-const restart = () => tictactoe.start();
-reset.addEventListener('click', restart);
