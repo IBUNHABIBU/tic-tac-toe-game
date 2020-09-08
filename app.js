@@ -1,7 +1,6 @@
 const cells = document.querySelectorAll('.cell');
 const winningMsg = document.querySelector('.winning-msg');
 const winData = document.querySelector('[data-win-text]');
-const reset = document.getElementById('reset');
 function Board() {
   const positions = Array.from(cells);
   const checkForWinner = () => {
