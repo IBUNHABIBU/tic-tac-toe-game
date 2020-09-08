@@ -3,16 +3,16 @@ const winningMsg = document.querySelector('.winning-msg');
 const winData = document.querySelector('[data-win-text]');
 const input = document.getElementById('input');
 const button = document.getElementById('submit');
-const start = document.querySelector('.start')
+const start = document.querySelector('.start');
 const board = document.querySelector('.board');
-function displayName(){
+function displayName() {
   const inputValue = input.value;
   const name = document.querySelector('.name');
   name.innerHTML = `<h1 class="text-center">Player: ${inputValue}</h1>`;
   start.classList.remove('show');
   board.classList.add('show');
 }
-button.addEventListener('click', displayName)
+button.addEventListener('click', displayName);
 function Board() {
   const positions = Array.from(cells);
   const checkForWinner = () => {
