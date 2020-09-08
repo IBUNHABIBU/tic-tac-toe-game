@@ -1,5 +1,5 @@
 .board {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   margin: auto;
   max-width: 300px;
@@ -45,3 +45,22 @@
 .winning-msg.show { display: flex; }
 
 .winning-msg div { padding: 1rem; }
+
+.start {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+}
+.start button {
+  margin: 1rem;
+}
+#input {
+  border: none;
+  height: 2.4rem;
+  border-bottom: 1px solid gray;
+  outline: none;
+}
+.start.show {
+  display: flex;
+}

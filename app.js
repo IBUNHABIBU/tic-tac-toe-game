@@ -1,6 +1,15 @@
 const cells = document.querySelectorAll('.cell');
 const winningMsg = document.querySelector('.winning-msg');
 const winData = document.querySelector('[data-win-text]');
+const input = document.getElementById('input');
+const start = document.getElementById('submit');
+function displayName(){
+  const inputValue = input.value;
+  const name = document.querySelector('.name');
+  name.innerHTML = `<h1 class="text-center">${inputValue}</h1>`;
+  start.classList.remove('show');
+}
+start.addEventListener('click', displayName)
 function Board() {
   const positions = Array.from(cells);
   const checkForWinner = () => {

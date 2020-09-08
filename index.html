@@ -15,6 +15,12 @@
 <body>
     <div class="container">
         <h1 class="display-4 text-center text-primary mt-4">Tic Tac Toe Game</h1>
+        <div class="name"></div>
+    <div class="start show">
+        <input type="text" placeholder="Enter your Name" id="input">
+        <button type="submit" id="submit" class="btn btn-primary">Start Game</button>
+    </div>
+        
         <div class="board">
             <div class="cell"></div>
             <div class="cell"></div>
@@ -30,6 +36,7 @@
     </div>
     <div class="winning-msg" id="winningMsg">
         <div data-win-text></div>
+        <button type="reset" id="reset">reset</button>
     </div>
   <script src="app.js"></script>
 </body>
