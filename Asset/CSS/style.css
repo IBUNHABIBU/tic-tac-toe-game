@@ -52,15 +52,16 @@
   align-items: center;
   padding: 5rem;
 }
-.start button {
-  margin: 1rem;
-}
+
+.start button { margin: 1rem; }
+
 #input {
   border: none;
   height: 2.4rem;
   border-bottom: 1px solid gray;
   outline: none;
 }
-.start.show {
-  display: flex;
-}
+
+.start.show { display: flex; }
+
+.board.show { display: flex;}
