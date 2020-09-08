@@ -43,3 +43,5 @@
 }
 
 .winning-msg.show { display: flex; }
+
+.winning-msg div { padding: 1rem; }

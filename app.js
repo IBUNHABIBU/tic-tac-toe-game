@@ -31,7 +31,7 @@ function Board() {
           if (positions[index].innerText === 'X') {
             winData.innerText = 'Conguratulation You Won The game!';
           } else {
-            winData.innerText = 'Oops Computer won try again';
+            winData.innerText = 'Oops You loose! Computer won try again';
           }
         });
       }
