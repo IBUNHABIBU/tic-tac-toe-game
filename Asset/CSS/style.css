@@ -44,6 +44,19 @@
 
 .winning-msg.show { display: flex; }
 
+.winning-msg button {
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.winning-msg button:hover {
+  background-color: black;
+  border-color: white;
+  color: white;
+}
 .winning-msg div { padding: 1rem; }
 
 .start {

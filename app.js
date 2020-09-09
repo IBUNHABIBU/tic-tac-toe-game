@@ -5,6 +5,7 @@ const input = document.getElementById('input');
 const button = document.getElementById('submit');
 const start = document.querySelector('.start');
 const board = document.querySelector('.board');
+const reset = document.getElementById('reset');
 function displayName() {
   const inputValue = input.value;
   const name = document.querySelector('.name');
@@ -12,6 +13,10 @@ function displayName() {
   start.classList.remove('show');
   board.classList.add('show');
 }
+function resetGame() {
+  location.reload();
+}
+reset.addEventListener('click', resetGame);
 button.addEventListener('click', displayName);
 function Board() {
   const positions = Array.from(cells);
@@ -43,7 +48,7 @@ function Board() {
             winData.innerText = 'Conguratulation You Won The game!';
           } else {
             winData.innerText = 'Oops You loose! Computer won try again';
-          }
+          } 
         });
       }
     });
@@ -65,7 +70,7 @@ function HumanPlayer(board) {
 function ComputerPlayer(board) {
   const takeTurn = () => {
     const availablePosition = board.positions.filter((p) => p.innerText === '');
-    const move = Math.floor(Math.random() * availablePosition.length);
+    const move = Math.floor(Math.random() * availablePosition.length-0);
     availablePosition[move].innerText = 'O';
   };
   return { takeTurn };
@@ -80,10 +85,13 @@ function Game() {
     if (board.checkForWinner()) {
       return;
     }
-    if (turn % 2 === 0) {
+    else if (turn % 2 === 0) {
       humanPlayer.takeTurn();
-    } else {
+    } else if(turn % 2 === 1){
       computerPlayer.takeTurn();
+    } else {
+      winData.innerText = 'Draw';
+      return;
     }
     turn += 1;
   };
