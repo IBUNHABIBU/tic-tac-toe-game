@@ -1,4 +1,3 @@
-
 function HumanPlayer(board) {
   const handleTurnTaken = (e) => {
     e.target.innerText = 'X';

@@ -1,4 +1,3 @@
-
 function ComputerPlayer(board) {
   const takeTurn = () => {
     const availablePosition = board.positions.filter((p) => p.innerText === '');
