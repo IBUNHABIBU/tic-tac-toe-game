@@ -52,6 +52,9 @@
   cursor: pointer;
 }
 
+
+.start button { margin: 1rem; }
+
 .winning-msg button:hover {
   background-color: black;
   border-color: white;
@@ -65,8 +68,6 @@
   align-items: center;
   padding: 5rem;
 }
-
-.start button { margin: 1rem; }
 
 #input {
   border: none;

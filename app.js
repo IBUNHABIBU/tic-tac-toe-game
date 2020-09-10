@@ -48,7 +48,7 @@ function Board() {
             winData.innerText = 'Conguratulation You Won The game!';
           } else {
             winData.innerText = 'Oops You loose! Computer won try again';
-          } 
+          }
         });
       }
     });
@@ -60,18 +60,17 @@ function Board() {
 function HumanPlayer(board) {
   const handleTurnTaken = (e) => {
     e.target.innerText = 'X';
-    console.log(e.target);
-    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken, { once : true }));
+    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken, { once: true }));
   };
   const takeTurn = () => {
-    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken, { once : true }));
+    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken, { once: true }));
   };
   return { takeTurn };
 }
 function ComputerPlayer(board) {
   const takeTurn = () => {
     const availablePosition = board.positions.filter((p) => p.innerText === '');
-    const move = Math.floor(Math.random() * availablePosition.length-0);
+    const move = Math.floor(Math.random() * availablePosition.length - 0);
     availablePosition[move].innerText = 'O';
   };
   return { takeTurn };
@@ -86,7 +85,7 @@ function Game() {
     if (board.checkForWinner()) {
       return;
     }
-    else if(turn===9 && !board.checkForWinner()){
+    else if (turn === 9 && !board.checkForWinner()) {
       winningMsg.classList.add('show');
       winData.innerText = 'Draw';
     }
