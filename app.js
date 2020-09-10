@@ -88,8 +88,7 @@ function Game() {
     if (turn === 9 && !board.checkForWinner()) {
       winningMsg.classList.add('show');
       winData.innerText = 'Draw';
-    }
-    else if (turn % 2 === 0) {
+    } else if (turn % 2 === 0) {
       humanPlayer.takeTurn();
     } else {
       computerPlayer.takeTurn();
