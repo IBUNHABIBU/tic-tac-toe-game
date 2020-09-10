@@ -60,10 +60,11 @@ function Board() {
 function HumanPlayer(board) {
   const handleTurnTaken = (e) => {
     e.target.innerText = 'X';
-    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken));
+    console.log(e.target);
+    board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken, { once : true }));
   };
   const takeTurn = () => {
-    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken));
+    board.positions.forEach(position => position.addEventListener('click', handleTurnTaken, { once : true }));
   };
   return { takeTurn };
 }
@@ -85,13 +86,14 @@ function Game() {
     if (board.checkForWinner()) {
       return;
     }
+    else if(turn===9 && !board.checkForWinner()){
+      winningMsg.classList.add('show');
+      winData.innerText = 'Draw';
+    }
     else if (turn % 2 === 0) {
       humanPlayer.takeTurn();
-    } else if(turn % 2 === 1){
-      computerPlayer.takeTurn();
     } else {
-      winData.innerText = 'Draw';
-      return;
+      computerPlayer.takeTurn();
     }
     turn += 1;
   };
