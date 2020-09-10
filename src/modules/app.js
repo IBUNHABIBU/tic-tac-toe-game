@@ -1,3 +1,5 @@
+import '../css/style.css';
+
 const cells = document.querySelectorAll('.cell');
 const winningMsg = document.querySelector('.winning-msg');
 const winData = document.querySelector('[data-win-text]');

@@ -1,0 +1,33 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "javascript tic tac toe game",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack",
+    "start:dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IBUNHABIBU/tic-tac-toe-game.git"
+  },
+  "author": "Ibunhabibu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IBUNHABIBU/tic-tac-toe-game/issues"
+  },
+  "homepage": "https://github.com/IBUNHABIBU/tic-tac-toe-game#readme",
+  "devDependencies": {
+    "css-loader": "^4.3.0",
+    "file-loader": "^6.1.0",
+    "html-loader": "^1.3.0",
+    "html-webpack-plugin": "^4.4.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
