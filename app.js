@@ -85,7 +85,7 @@ function Game() {
     if (board.checkForWinner()) {
       return;
     }
-    else if (turn === 9 && !board.checkForWinner()) {
+    if (turn === 9 && !board.checkForWinner()) {
       winningMsg.classList.add('show');
       winData.innerText = 'Draw';
     }
