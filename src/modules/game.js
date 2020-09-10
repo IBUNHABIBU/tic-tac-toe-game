@@ -1,11 +1,12 @@
-import Board from './board.js';
+import Board from './board';
 
-import HumanPlayer from './humanPlayer.js';
+import HumanPlayer from './humanPlayer';
 
-import ComputerPlayer from './computerPlayer.js';
+import ComputerPlayer from './computerPlayer';
 
 function Game() {
   const winData = document.querySelector('[data-win-text]');
+  const winningMsg = document.querySelector('.winning-msg');
   const board = Board();
   const humanPlayer = HumanPlayer(board);
   const computerPlayer = ComputerPlayer(board);

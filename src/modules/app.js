@@ -1,6 +1,6 @@
 import '../css/style.css';
 
-import Game from './game.js';
+import Game from './game';
 
 const input = document.getElementById('input');
 const button = document.getElementById('submit');
