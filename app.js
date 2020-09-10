@@ -14,7 +14,7 @@ function displayName() {
   board.classList.add('show');
 }
 function resetGame() {
-  location.reload();
+  window.location.reload();
 }
 reset.addEventListener('click', resetGame);
 button.addEventListener('click', displayName);
@@ -87,7 +87,7 @@ function Game() {
     }
     if (turn === 9 && !board.checkForWinner()) {
       winningMsg.classList.add('show');
-      winData.innerText = 'Draw';
+      winData.innerText = 'It\'s Draw try again';
     } else if (turn % 2 === 0) {
       humanPlayer.takeTurn();
     } else {
