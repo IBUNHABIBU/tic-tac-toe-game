@@ -1,10 +1,8 @@
 function Board() {
   const cells = document.querySelectorAll('.cell');
-  const winningMsg = document.querySelector('.winning-msg');
-  const winData = document.querySelector('[data-win-text]');
   const positions = Array.from(cells);
-  const checkForWinner = () => {
-    let winner = false;
+
+  const checkForWinner = (turn, values = false) => {
     const winningCombinations = [
       [0, 1, 2],
       [3, 4, 5],
@@ -15,28 +13,35 @@ function Board() {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    winningCombinations.forEach(winningCombo => {
-      const pos0InnerText = positions[winningCombo[0]].innerText;
-      const pos1InnerText = positions[winningCombo[1]].innerText;
-      const pos2InnerText = positions[winningCombo[2]].innerText;
-      const isWinningCombo = pos0InnerText !== ''
-      && pos0InnerText === pos1InnerText
-      && pos1InnerText === pos2InnerText;
-      if (isWinningCombo) {
-        winner = true;
-        winningCombo.forEach(index => {
-          positions[index].classList.add('win');
-          winningMsg.classList.add('show');
-          if (positions[index].innerText === 'X') {
-            winData.innerText = 'Conguratulation You Won The game!';
-          } else {
-            winData.innerText = 'Oops You loose! Computer won try again';
-          }
-        });
+    const currentTurn = turn % 2 === 0 ? 'X' : 'O';
+    const currentValues = values || positions.map(el => el.textContent).reduce(function(a, e, i) {
+      if (e === currentTurn)
+          a.push(+i);
+      return a;
+  }, [])
+
+    const winner =  winningCombinations.some(winningCombo => {
+      return winningCombo.every(index => currentValues.includes(index))
+    });
+    return winner
+  };
+
+  const updateDom = (turn) => {
+    const winningMsg = document.querySelector('.winning-msg');
+    const winData = document.querySelector('[data-win-text]');
+    const currentTurn = turn % 2 === 0 ? 'X' : '0';
+    const winningCombo = positions.filter(position => position.textContent === currentTurn);
+    
+    winningCombo.forEach(element => {
+      element.classList.add('win');
+      winningMsg.classList.add('show');
+      if (element.innerText === 'X') {
+        winData.innerText = 'Conguratulation You Won The game!';
+      } else {
+        winData.innerText = 'Oops You loose! Computer won try again';
       }
     });
-    return winner;
-  };
-  return { positions, checkForWinner };
+  }
+  return { positions, checkForWinner, updateDom };
 }
 export default Board;

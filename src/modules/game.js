@@ -12,10 +12,11 @@ function Game() {
   const computerPlayer = ComputerPlayer(board);
   let turn = 0;
   const takeTurn = () => {
-    if (board.checkForWinner()) {
+    if (board.checkForWinner(turn)) {
+      board.updateDom(turn);
       return;
     }
-    if (turn === 9 && !board.checkForWinner()) {
+    if (turn === 9 && !board.checkForWinner(turn)) {
       winningMsg.classList.add('show');
       winData.innerText = 'It\'s Draw try again';
     } else if (turn % 2 === 0) {
