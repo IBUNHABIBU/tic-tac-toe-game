@@ -2,7 +2,7 @@ function Board() {
   const cells = document.querySelectorAll('.cell');
   const positions = Array.from(cells);
 
-  const checkForWinner = (turn, values = false) => {
+  const checkForWinner = (turn) => {
     const winningCombinations = [
       [0, 1, 2],
       [3, 4, 5],
@@ -13,8 +13,8 @@ function Board() {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    const currentTurn = turn % 2 === 0 ? 'X' : 'O';
-    const currentValues = values || positions.map(el => el.textContent).reduce(function(a, e, i) {
+    const currentTurn = turn % 2 === 0 ? 'O' : 'X';
+    const currentValues =  positions.map(el => el.textContent).reduce(function(a, e, i) {
       if (e === currentTurn)
           a.push(+i);
       return a;
@@ -29,9 +29,9 @@ function Board() {
   const updateDom = (turn) => {
     const winningMsg = document.querySelector('.winning-msg');
     const winData = document.querySelector('[data-win-text]');
-    const currentTurn = turn % 2 === 0 ? 'X' : '0';
+    const currentTurn = turn % 2 === 0 ? 'O' : 'X';
     const winningCombo = positions.filter(position => position.textContent === currentTurn);
-    
+
     winningCombo.forEach(element => {
       element.classList.add('win');
       winningMsg.classList.add('show');

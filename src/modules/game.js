@@ -13,8 +13,8 @@ function Game() {
   let turn = 0;
   const takeTurn = () => {
     if (board.checkForWinner(turn)) {
-      board.updateDom(turn);
-      return;
+       board.updateDom(turn);
+       return;
     }
     if (turn === 9 && !board.checkForWinner(turn)) {
       winningMsg.classList.add('show');
