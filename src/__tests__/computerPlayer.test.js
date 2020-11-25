@@ -27,7 +27,7 @@ container.innerHTML = `
     </div>
 `;
 
-const winData = container.querySelector('[data-win-text]');
+const winData = container.querySelector('[data-win-text]')
 const winningMsg = container.querySelector('.winning-msg');
 const cells = container.querySelectorAll('.cell');
 const positions = Array.from(cells);
