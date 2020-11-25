@@ -4,10 +4,8 @@ import HumanPlayer from './humanPlayer';
 
 import ComputerPlayer from './computerPlayer';
 
-function Game() {
-  const winData = document.querySelector('[data-win-text]');
-  const winningMsg = document.querySelector('.winning-msg');
-  const board = Board();
+function Game(positions, winData, winningMsg) {
+  const board = Board(positions, winData, winningMsg);
   const humanPlayer = HumanPlayer(board);
   const computerPlayer = ComputerPlayer(board);
   let turn = 0;

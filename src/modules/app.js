@@ -7,6 +7,10 @@ const button = document.getElementById('submit');
 const start = document.querySelector('.start');
 const board = document.querySelector('.board');
 const reset = document.getElementById('reset');
+const winData = document.querySelector('[data-win-text]');
+const winningMsg = document.querySelector('.winning-msg');
+const cells = document.querySelectorAll('.cell');
+const positions = Array.from(cells);
 function displayName() {
   const inputValue = input.value;
   const name = document.querySelector('.name');
@@ -19,5 +23,5 @@ function resetGame() {
 }
 reset.addEventListener('click', resetGame);
 button.addEventListener('click', displayName);
-const tictactoe = Game();
+const tictactoe = Game(positions, winData, winningMsg);
 tictactoe.start();

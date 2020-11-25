@@ -1,6 +1,6 @@
-function Board() {
-  const cells = document.querySelectorAll('.cell');
-  const positions = Array.from(cells);
+function Board(positions, winData, winningMsg) {
+  // const cells = document.querySelectorAll('.cell');
+  // const positions = Array.from(cells);
 
   const checkForWinner = (turn) => {
     const winningCombinations = [
@@ -27,8 +27,6 @@ function Board() {
   };
 
   const updateDom = (turn) => {
-    const winningMsg = document.querySelector('.winning-msg');
-    const winData = document.querySelector('[data-win-text]');
     const currentTurn = turn % 2 === 0 ? 'O' : 'X';
     const winningCombo = positions.filter(position => position.textContent === currentTurn);
 
