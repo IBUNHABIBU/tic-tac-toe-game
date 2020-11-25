@@ -28,18 +28,21 @@ function Board(positions, winData, winningMsg) {
 
   const updateDom = (turn) => {
     const currentTurn = turn % 2 === 0 ? 'O' : 'X';
-    const winningCombo = positions.filter(position => position.textContent === currentTurn);
+    const winningCombo = positions.filter(
+      (position) => position.textContent === currentTurn
+    );
 
-    winningCombo.forEach(element => {
+    if (currentTurn === 'X') {
+      winData.innerText = 'Conguratulation You Won The game!';
+    } else {
+      winData.innerText = 'Oops You loose! Computer won try again';
+    }
+
+    winningCombo.forEach((element) => {
       element.classList.add('win');
       winningMsg.classList.add('show');
-      if (element.innerText === 'X') {
-        winData.innerText = 'Conguratulation You Won The game!';
-      } else {
-        winData.innerText = 'Oops You loose! Computer won try again';
-      }
     });
-  }
+  };
   return { positions, checkForWinner, updateDom };
 }
 export default Board;
