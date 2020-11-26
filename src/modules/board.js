@@ -14,12 +14,10 @@ function Board(positions, winData, winningMsg) {
       [2, 4, 6],
     ];
     const currentTurn = turn % 2 === 0 ? 'O' : 'X';
-    const currentValues =  positions.map(el => el.textContent).reduce(function(a, e, i) {
-      if (e === currentTurn)
-          a.push(+i);
+    const currentValues = positions.map(el => el.textContent).reduce(function(a, e, i) {
+      if (e === currentTurn) a.push(+i);
       return a;
-  }, [])
-
+    }, [])
     const winner =  winningCombinations.some(winningCombo => {
       return winningCombo.every(index => currentValues.includes(index))
     });

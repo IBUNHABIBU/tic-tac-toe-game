@@ -74,9 +74,7 @@ describe('Board', () => {
       });
       const board = Board(positions, winData, winningMsg);
       board.updateDom(1);
-      expect(winData.innerText).toStrictEqual(
-        'Conguratulation You Won The game!'
-      );
+      expect(winData.innerText).toStrictEqual('Conguratulation You Won The game!');
     });
 
     test('should put the text `Oops You loose! Computer won try again', () => {
@@ -86,9 +84,7 @@ describe('Board', () => {
       });
       const board = Board(positions, winData, winningMsg);
       board.updateDom(0);
-      expect(winData.innerText).toStrictEqual(
-        'Oops You loose! Computer won try again'
-      );
+      expect(winData.innerText).toStrictEqual('Oops You loose! Computer won try again');
     });
   });
 });

@@ -5,8 +5,7 @@ function HumanPlayer(board) {
   };
   const takeTurn = () => {
     board.positions.forEach((position) => {
-      if (position.textContent === '')
-        position.addEventListener('click', handleTurnTaken, { once: true });
+      if (position.textContent === '') position.addEventListener('click', handleTurnTaken, { once: true });
     });
   };
   return { takeTurn };

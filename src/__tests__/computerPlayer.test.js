@@ -27,7 +27,7 @@ container.innerHTML = `
     </div>
 `;
 
-const winData = container.querySelector('[data-win-text]')
+const winData = container.querySelector('[data-win-text]');
 const winningMsg = container.querySelector('.winning-msg');
 const cells = container.querySelectorAll('.cell');
 const positions = Array.from(cells);
@@ -38,9 +38,7 @@ describe('ComputerPlayer', () => {
       const board = Board(positions, winData, winningMsg);
       const computer = ComputerPlayer(board);
       computer.takeTurn();
-      const boardHasO = positions.some(
-        (position) => position.textContent === 'O'
-      );
+      const boardHasO = positions.some( position => position.textContent === 'O');
       expect(boardHasO).toBeTruthy();
     });
   });
