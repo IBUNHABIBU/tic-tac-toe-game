@@ -11,11 +11,11 @@ function Board(positions, winData, winningMsg) {
       [2, 4, 6],
     ];
     const currentTurn = turn % 2 === 0 ? 'O' : 'X';
-    const currentValues = positions.map(el => el.textContent).reduce((a, e, i) => {
+    const currValues = positions.map(el => el.textContent).reduce((a, e, i) => {
       if (e === currentTurn) a.push(+i);
       return a;
     }, []);
-    const winner = winningCombinations.some(winComb => winComb.every(i => currentValues.includes(i)));
+    const winner = winningCombinations.some(winComb => winComb.every(i => currValues.includes(i)));
     return winner;
   };
 
