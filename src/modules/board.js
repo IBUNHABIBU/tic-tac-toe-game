@@ -1,7 +1,4 @@
 function Board(positions, winData, winningMsg) {
-  // const cells = document.querySelectorAll('.cell');
-  // const positions = Array.from(cells);
-
   const checkForWinner = (turn) => {
     const winningCombinations = [
       [0, 1, 2],
@@ -14,7 +11,7 @@ function Board(positions, winData, winningMsg) {
       [2, 4, 6],
     ];
     const currentTurn = turn % 2 === 0 ? 'O' : 'X';
-    const currentValues = positions.map(el => el.textContent).reduce(function(a, e, i) {
+    const currentValues = positions.map(el => el.textContent).reduce((a, e, i) => {
       if (e === currentTurn) a.push(+i);
       return a;
     }, []);
