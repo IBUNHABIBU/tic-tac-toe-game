@@ -38,7 +38,7 @@ describe('ComputerPlayer', () => {
       const board = Board(positions, winData, winningMsg);
       const computer = ComputerPlayer(board);
       computer.takeTurn();
-      const boardHasO = positions.some( position => position.textContent === 'O');
+      const boardHasO = positions.some(position => position.textContent === 'O');
       expect(boardHasO).toBeTruthy();
     });
   });

@@ -17,18 +17,16 @@ function Board(positions, winData, winningMsg) {
     const currentValues = positions.map(el => el.textContent).reduce(function(a, e, i) {
       if (e === currentTurn) a.push(+i);
       return a;
-    }, [])
-    const winner =  winningCombinations.some(winningCombo => {
-      return winningCombo.every(index => currentValues.includes(index))
+    }, []);
+    const winner = winningCombinations.some(winningCombo => {
+      return winningCombo.every(index => currentValues.includes(index));
     });
-    return winner
+    return winner;
   };
 
   const updateDom = (turn) => {
     const currentTurn = turn % 2 === 0 ? 'O' : 'X';
-    const winningCombo = positions.filter(
-      (position) => position.textContent === currentTurn
-    );
+    const winningCombo = positions.filter(position => position.textContent === currentTurn);
 
     if (currentTurn === 'X') {
       winData.innerText = 'Conguratulation You Won The game!';
