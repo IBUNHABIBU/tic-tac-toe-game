@@ -15,7 +15,7 @@ function Board(positions, winData, winningMsg) {
       if (e === currentTurn) a.push(+i);
       return a;
     }, []);
-    const winner = winningCombinations.some(winningCombo => winningCombo.every(index => currentValues.includes(index)));
+    const winner = winningCombinations.some(winComb => winComb.every(i => currentValues.includes(i)));
     return winner;
   };
 
