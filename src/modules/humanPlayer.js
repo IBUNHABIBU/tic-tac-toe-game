@@ -1,6 +1,7 @@
 function HumanPlayer(board) {
   const handleTurnTaken = (e) => {
     e.target.innerText = 'X';
+    console.log(board.positions);
     board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken, { once: true }));
   };
   const takeTurn = () => {
