@@ -6,7 +6,7 @@ container.innerHTML = `
         <input type="text" placeholder="Enter your Name" id="input">
         <button type="submit" id="submit" class="btn btn-primary">Start Game</button>
     </div>
-        
+    
         <div class="board">
             <div class="cell"></div>
             <div class="cell"></div>
@@ -42,7 +42,6 @@ describe('Board', () => {
   describe('#checkForWinner', () => {
     test('should return false if there is no winner', () => {
       const board = Board(positions, winData, winningMsg);
-
       expect(board.checkForWinner()).toBeFalsy();
     });
 
